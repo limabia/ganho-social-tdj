@@ -1,0 +1,10 @@
+*.pyc
+env/
+/.idea/
+/static/
+/media/
+.project
+.pydevproject
+*.log
+/lib/
+.vscode
