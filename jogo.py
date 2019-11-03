@@ -8,15 +8,18 @@ def jogadas(jogadores: list):
         incrementado a cada iteração do jogador com outro membro da população.
     """
     for jogador_a in jogadores:
-        print("\n\nPerfil jogador:", jogador_a.perfil)
-        print("conteudo_interesse jogador:", jogador_a.conteudo_interesse)
-        print("conteudo_publicado jogador:", jogador_a.conteudo_publicado)
-        print("qualidade_publicacao jogador:", jogador_a.qualidade_publicacao)
-        print("frequencia_publicacao jogador:", jogador_a.frequencia_publicacao)
-        print("utilidade jogador:", jogador_a.utilidade)
+        #print("\n\nPerfil jogador:", jogador_a.perfil)
+        #print("conteudo_interesse jogador:", jogador_a.conteudo_interesse)
+        #print("conteudo_publicado jogador:", jogador_a.conteudo_publicado)
+        #print("qualidade_publicacao jogador:", jogador_a.qualidade_publicacao)
+        #print("frequencia_publicacao jogador:", jogador_a.frequencia_publicacao)
+        #print("utilidade jogador:", jogador_a.utilidade)
 
-        
         for jogador_b in jogadores:
+            print("conteudo_interesse jogador A:", jogador_a.conteudo_interesse)
+            print("conteudo_publicado jogador B:", jogador_b.conteudo_publicado)
+            interesse_a_em_b = interesse(jogador_a.conteudo_interesse, jogador_b.conteudo_publicado)
+            print("Interesse de A em B:", interesse_a_em_b)
             pass
         # fazer a jogada individual desse jogador com cada um um dos outros e armazenar o resultado de cada uma delas
         # fazer a media das utilidades de todas as jogads desse jogador
@@ -27,7 +30,9 @@ def jogada_individual(jogador: Player):
     pass
 
 
-def utilidade_da_jogada():
-    # calcular a media das utilidades
-    pass
-
+def interesse(conteudo_interesse, conteudo_publicado):
+    match = 0
+    for conteudo in conteudo_interesse:
+        if conteudo in conteudo_publicado:
+            match = match + 1
+    return match/len(conteudo_publicado)
