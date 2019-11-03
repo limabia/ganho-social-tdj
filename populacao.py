@@ -6,10 +6,11 @@ class Player:
 
     def __init__(self, perfil, conteudo_interesse, conteudo_publicado, qualidade_publicacao, frequencia_publicacao):
         self.perfil = perfil
-        self.conteudo_interesse = conteudo_interesse
-        self.conteudo_publicado = conteudo_publicado
+        self.conteudo_interesse = conteudo_interesse.split(";")
+        self.conteudo_publicado = conteudo_publicado.split(";")
         self.qualidade_publicacao = qualidade_publicacao
         self.frequencia_publicacao = frequencia_publicacao
+        self.utilidade = 0
 
 
 def gera_populacao(txt):
@@ -21,13 +22,14 @@ def gera_populacao(txt):
     if massa_populacao.mode == 'r':
         contents = massa_populacao.readlines()
         while contents:
-            linha = contents.pop()
+            linha = contents.pop().replace("\n","")
+            atributos = linha.split(",")
             player = Player(
-                perfil=linha[0],
-                conteudo_interesse=linha[1],
-                conteudo_publicado=linha[2],
-                qualidade_publicacao=linha[3],
-                frequencia_publicacao=linha[4]
+                perfil=atributos[0],
+                conteudo_interesse=atributos[1],
+                conteudo_publicado=atributos[2],
+                qualidade_publicacao=atributos[3],
+                frequencia_publicacao=atributos[4]
             )
             populacao.append(player)
     massa_populacao.close()
