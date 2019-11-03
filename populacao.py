@@ -8,8 +8,8 @@ class Player:
         self.perfil = perfil
         self.conteudo_interesse = conteudo_interesse.split(";")
         self.conteudo_publicado = conteudo_publicado.split(";")
-        self.qualidade_publicacao = qualidade_publicacao
-        self.frequencia_publicacao = frequencia_publicacao
+        self.qualidade_publicacao = float(qualidade_publicacao)
+        self.frequencia_publicacao = float(frequencia_publicacao)
         self.utilidade = 0
 
 
