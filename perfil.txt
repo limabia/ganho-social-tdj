@@ -1,0 +1,2 @@
+perfil1,esportes;musica,esportes,0.31,0.5
+perfil2,moda;viagens,esportes,0.1,0.3
