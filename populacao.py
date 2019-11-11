@@ -61,19 +61,20 @@ def gera_getalhes(pathFile):
 
 def gera_populacao(tipo_perfis, detalhes_pop):
     populacao = []
+    total_pop = 0
 
     lista_detalhes_pop = gera_getalhes(detalhes_pop)
     lista_perfis = gera_getalhes(tipo_perfis)
 
     for perfil in lista_perfis:
         if(perfil[0] == 'perfil1'):
-            perfil1 = detalhe_pop[1]
+            perfil1 = perfil[1]
         if(perfil[0] == 'perfil2'):
-            perfil2 = detalhe_pop[1]
+            perfil2 = perfil[1]
         if(perfil[0] == 'perfil3'):
-            perfil3 = detalhe_pop[1]
+            perfil3 = perfil[1]
         if(perfil[0] == 'perfil4'):
-            perfil4 = detalhe_pop[1]
+            perfil4 = perfil[1]
 
     for detalhe_pop in lista_detalhes_pop:
         if(detalhe_pop[0] == 'pop'):
