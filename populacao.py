@@ -68,38 +68,38 @@ def gera_populacao(tipo_perfis, detalhes_pop):
 
     for perfil in lista_perfis:
         if(perfil[0] == 'perfil1'):
-            perfil1 = perfil[1]
+            perfil1 = perfil
         if(perfil[0] == 'perfil2'):
-            perfil2 = perfil[1]
+            perfil2 = perfil
         if(perfil[0] == 'perfil3'):
-            perfil3 = perfil[1]
+            perfil3 = perfil
         if(perfil[0] == 'perfil4'):
-            perfil4 = perfil[1]
+            perfil4 = perfil
 
     for detalhe_pop in lista_detalhes_pop:
         if(detalhe_pop[0] == 'pop'):
-            total_pop = detalhe_pop[1]
+            total_pop = int(detalhe_pop[1])
 
         if(detalhe_pop[0] == 'perfil1'):
-            qtd_perfil1 = detalhe_pop[1]
+            qtd_perfil1 = int(detalhe_pop[1])
             for i in range(qtd_perfil1):
                 populacao.append(gera_jogador(perfil1))
             total_pop -= qtd_perfil1
 
         if(detalhe_pop[0] == 'perfil2'):
-            qtd_perfil2 = detalhe_pop[1]
+            qtd_perfil2 = int(detalhe_pop[1])
             for i in range(qtd_perfil2):
                 populacao.append(gera_jogador(perfil2))
             total_pop -= qtd_perfil2
 
         if(detalhe_pop[0] == 'perfil3'):
-            qtd_perfil3 = detalhe_pop[1]
+            qtd_perfil3 = int(detalhe_pop[1])
             for i in range(qtd_perfil3):
                 populacao.append(gera_jogador(perfil3))
             total_pop -= qtd_perfil3
 
         if(detalhe_pop[0] == 'perfil4'):
-            qtd_perfil4 = detalhe_pop[1]
+            qtd_perfil4 = int(detalhe_pop[1])
             for i in range(qtd_perfil4):
                 populacao.append(gera_jogador(perfil4))
             total_pop -= qtd_perfil4
