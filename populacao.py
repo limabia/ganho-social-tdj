@@ -103,7 +103,8 @@ def gera_populacao(tipo_perfis, detalhes_pop):
                 populacao.append(gera_jogador(perfil4))
             total_pop -= qtd_perfil4
 
-    for i in range(total_pop):
-        populacao.append(gera_jogador_aleatorio(lista_perfis))
+    # TODO arrumar esse total pop para nao criar coisa que nao deve
+    #for i in range(total_pop):
+    #    populacao.append(gera_jogador_aleatorio(lista_perfis))
 
     return populacao

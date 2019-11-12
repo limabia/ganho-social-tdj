@@ -33,7 +33,7 @@ def calcular_custo(jogador):
 
 
 def jogada_individual(jogador_a, jogador_b):
-    print('jogador A:', jogador_a.perfil, ' Jogador B: ', jogador_b.perfil)
+    print("jogador A:", jogador_a.perfil, " Jogador B: ", jogador_b.perfil)
     print("conteudo_interesse jogador A:", jogador_a.conteudo_interesse)
     print("conteudo_publicado jogador B:", jogador_b.conteudo_publicado)
     print("Frequencia jogador B:", jogador_b.frequencia_publicacao)
@@ -71,13 +71,17 @@ def jogadas(jogadores: list):
         o resultado da jogada individual é a utilidade daquela interação, esse resultado deve ser armazenado e
         incrementado a cada iteração do jogador com outro membro da população.
     """
+    i = 0
     for jogador_a in jogadores:
-        for jogador_b in jogadores:
-            if jogador_a != jogador_b:
-                jogada_individual(jogador_a, jogador_b)
+        adversarios = jogadores.copy()
+        adversarios.remove(jogador_a)
+        for jogador_b in adversarios:
+            print('jogador a: ', jogador_a, 'jogador b: ', jogador_b)
+            jogada_individual(jogador_a, jogador_b)
+            i += 1
 
     for jogador in jogadores:
-        print("\n\n")
-        print('Jogador:', jogador.perfil)
+        print("\n")
+        print("Jogador:", jogador.perfil)
         jogador.utilidade = calcular_utilidade(jogador)
-        print('Utilidade:', jogador.utilidade)
+        print("Utilidade:", jogador.utilidade)
