@@ -6,7 +6,6 @@ from populacao import gera_populacao
 
 
 def main(args):
-    # TODO implementar um gera populacao aleatoria utilizando o args.npop para definir o tamanho da pop
     populacao = gera_populacao(args.tiposPerfis, args.detalhesPop)
     print(populacao)
     jogadas(populacao)
