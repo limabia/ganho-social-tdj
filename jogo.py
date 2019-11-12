@@ -1,5 +1,4 @@
 # coding=utf-8
-from populacao import Jogador
 
 
 def calcular_interesse(jogador_a, jogador_b):
@@ -13,7 +12,8 @@ def calcular_interesse(jogador_a, jogador_b):
 
 
 def calcular_perda(jogador_a, jogador_b):
-    return pow(jogador_b.frequencia_publicacao, 2) * pow((1 - jogador_b.qualidade_publicacao), 2) * pow((1 - calcular_interesse(jogador_a, jogador_b)), 2)
+    return pow(jogador_b.frequencia_publicacao, 2) * pow((1 - jogador_b.qualidade_publicacao), 2) * pow(
+        (1 - calcular_interesse(jogador_a, jogador_b)), 2)
 
 
 def calcular_ganho(jogador_a, jogador_b):
@@ -25,7 +25,7 @@ def calcular_consumo(jogador_a, jogador_b):
 
 
 def calcular_atencao(jogador_a, jogador_b):
-    return jogador_a.frequencia_publicacao * jogador_a.qualidade_publicacao * calcular_interesse(jogador_b,jogador_a)
+    return jogador_a.frequencia_publicacao * jogador_a.qualidade_publicacao * calcular_interesse(jogador_b, jogador_a)
 
 
 def calcular_custo(jogador):
@@ -33,28 +33,31 @@ def calcular_custo(jogador):
 
 
 def jogada_individual(jogador_a, jogador_b):
-    # jogada_individual(jogador_a,jogador_b)
-    print('jogador A:', jogador_a.perfil)
+    print('jogador A:', jogador_a.perfil, ' Jogador B: ', jogador_b.perfil)
     print("conteudo_interesse jogador A:", jogador_a.conteudo_interesse)
     print("conteudo_publicado jogador B:", jogador_b.conteudo_publicado)
     print("Frequencia jogador B:", jogador_b.frequencia_publicacao)
     print("Qualidade jogador B:", jogador_b.qualidade_publicacao)
     interesse_a_em_b = calcular_interesse(jogador_a, jogador_b)
     print("Interesse de A em B:", interesse_a_em_b)
-    consumo_a_em_b = calcular_consumo(jogador_a, jogador_b)
-    print("Consumo de A em B:", consumo_a_em_b)
-    print("Minimo para jogador A seguir B: ", jogador_a.minimoConsumo)
-    if (consumo_a_em_b >= jogador_a.minimoConsumo):
-        print("Jogador A seguiu B")
-        jogador_b.seguidores.append(jogador_a)
-        jogador_a.segue.append(jogador_b)
+    if interesse_a_em_b != 0:
+        consumo_a_em_b = calcular_consumo(jogador_a, jogador_b)
+        print("Consumo de A em B:", consumo_a_em_b)
+        print("Minimo para jogador A seguir B: ", jogador_a.minimoConsumo)
+        if consumo_a_em_b >= jogador_a.minimoConsumo:
+            print("Jogador A seguiu B")
+            jogador_b.seguidores.append(jogador_a)
+            jogador_a.segue.append(jogador_b)
+        else:
+            print("Jogador A não seguiu B")
+    else:
+        print("Jogador A não seguiu B")
     print("\n\n")
 
 
 def calcular_utilidade(jogador_a):
     consumo = 0.0
     atencao = 0.0
-    custo = 0.0
     for jogador_seguido_por_a in jogador_a.segue:
         consumo += calcular_consumo(jogador_a, jogador_seguido_por_a)
     for jogador_que_segue_a in jogador_a.seguidores:
@@ -69,16 +72,8 @@ def jogadas(jogadores: list):
         incrementado a cada iteração do jogador com outro membro da população.
     """
     for jogador_a in jogadores:
-
-        # print("\n\nPerfil jogador:", jogador_a.perfil)
-        # print("conteudo_interesse jogador:", jogador_a.conteudo_interesse)
-        # print("conteudo_publicado jogador:", jogador_a.conteudo_publicado)
-        # print("qualidade_publicacao jogador:", jogador_a.qualidade_publicacao)
-        # print("frequencia_publicacao jogador:", jogador_a.frequencia_publicacao)
-        # print("utilidade jogador:", jogador_a.utilidade
-
         for jogador_b in jogadores:
-            if(jogador_a != jogador_b):
+            if jogador_a != jogador_b:
                 jogada_individual(jogador_a, jogador_b)
 
     for jogador in jogadores:
@@ -86,7 +81,3 @@ def jogadas(jogadores: list):
         print('Jogador:', jogador.perfil)
         jogador.utilidade = calcular_utilidade(jogador)
         print('Utilidade:', jogador.utilidade)
-
-        # guardar a lista de quem o jogador a esta seguindo na rede e a partir disso calcular a utilidade
-        # fazer a jogada individual desse jogador com cada um um dos outros e armazenar o resultado de cada uma delas
-        # fazer a media das utilidades de todas as jogads desse jogador

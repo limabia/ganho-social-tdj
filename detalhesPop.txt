@@ -1,5 +1,5 @@
-pop,50
-perfil1,10
-perfil2,20
-perfil3,10
-perfil4,10
+pop,4
+perfil1,1
+perfil2,1
+perfil3,1
+perfil4,1

@@ -25,7 +25,6 @@ class Jogador:
         self.minimoConsumo = float(minimo_consumo)
 
 
-
 def gera_jogador(atributos):
     jogador = Jogador(
         perfil=atributos[0],
