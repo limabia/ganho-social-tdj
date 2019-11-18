@@ -14,8 +14,8 @@ def main(args):
 def arg_parse():
     """ analisa e separa os argumentos passados ao iniciar a execucao """
     parser = argparse.ArgumentParser(description='new')
-    parser.add_argument("--tiposPerfis", help="Tipos de perfis", default="")
-    parser.add_argument("--detalhesPop", help="Detalhes da população a ser criada", default="")
+    parser.add_argument("--tiposPerfis", help="Tipos de perfis", required=True)
+    parser.add_argument("--detalhesPop", help="Detalhes da população a ser criada", required=True)
 
     return parser.parse_args()
 
