@@ -1,4 +1,5 @@
-perfil1,esportes;musica,esportes,0.31,0.5,0.5
-perfil2,moda;viagens,viagens,0.1,0.3,0.8
-perfil3,esportes;jogos,musica,0.7,0.9,0.34
-perfil4,musica;esportes;jogos;moda,esportes;musica;jogos,0.99,0.99,0.29
+perfil1,esportes;musica,esportes,media,media,0.5
+perfil2,moda;viagens,viagens,media,media,0.8
+perfil3,esportes;jogos,musica,media,media,0.34
+perfil4,musica;esportes;jogos;moda,esportes;musica;jogos,media,media,0.29
+perfil5,musica;esportes;jogos;moda,esportes;musica;jogos,media,media,0.29

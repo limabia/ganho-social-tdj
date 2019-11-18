@@ -2,6 +2,7 @@
 # generate random integer values
 from random import seed
 from random import randint
+import random
 
 
 class Jogador:
@@ -25,13 +26,45 @@ class Jogador:
         self.minimoConsumo = float(minimo_consumo)
 
 
+def gera_qualidade(faixa_qualidade):
+    if(faixa_qualidade == 'alta'):
+        return random.uniform(1.5, 1.9)
+    if(faixa_qualidade == 'media'):
+        return random.uniform(1.5, 1.9)
+    if(faixa_qualidade == 'baixa'):
+        return random.uniform(1.5, 1.9)
+
+def gera_frequencia(faixa_frequencia):
+    if(faixa_frequencia == 'alta'):
+        return random.uniform(1.5, 1.9)
+    if(faixa_frequencia == 'media'):
+        return random.uniform(1.5, 1.9)
+    if(faixa_frequencia == 'baixa'):
+        return random.uniform(1.5, 1.9)
+
+def gera_conteudo(faixa_conteudo):
+    tipos_conteudo = ['comida','meme','atividades','selfies','fotos_em_grupo']
+    if(faixa_frequencia == 'alta'):
+        i = randint(4, 5)
+    if(faixa_frequencia == 'media'):
+        return random.uniform(1.5, 1.9)
+    if(faixa_frequencia == 'baixa'):
+        return random.uniform(1.5, 1.9)
+    
 def gera_jogador(atributos):
+    
+
+    interesse = gera_conteudo(atributos[1])
+    publicado = gera_conteudo([atributos[2]])
+    qualidade = gera_qualidade(atributos[3])
+    frequencia = gera_frequencia(atributos[4])
+
     jogador = Jogador(
         perfil=atributos[0],
         conteudo_interesse=atributos[1],
         conteudo_publicado=atributos[2],
-        qualidade_publicacao=atributos[3],
-        frequencia_publicacao=atributos[4],
+        qualidade_publicacao=qualidade,
+        frequencia_publicacao=frequencia,
         minimo_consumo=atributos[5]
     )
     return jogador

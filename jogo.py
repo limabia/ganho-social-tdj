@@ -19,7 +19,6 @@ arquivo_jogadas.writerow([
     "jogador",
     "utilidade"
     ])
-
 jogador_a_seguiu_b: bool
 
 def calcular_interesse(jogador_a, jogador_b):
