@@ -1,0 +1,13 @@
+jogador_a,jogador_b,interesses_JA,publicado_JB,frequencia_JB,qualidade_JB,interesse_JA_em_JB,consumo_JA_em_JB,minimo_consumo_JA,JA_seguiu_JB,JA_segue
+perfil4,perfil3,"['musica', 'esportes', 'jogos', 'moda']",['musica'],0.9,0.7,1.0,0.63,0.29,1,[<populacao.Jogador object at 0x03BD5930>]
+perfil4,perfil2,"['musica', 'esportes', 'jogos', 'moda']",['viagens'],0.3,0.1,0.0,0.0,0.29,0,[<populacao.Jogador object at 0x03BD5930>]
+perfil4,perfil1,"['musica', 'esportes', 'jogos', 'moda']",['esportes'],0.5,0.31,1.0,0.155,0.29,0,[<populacao.Jogador object at 0x03BD5930>]
+perfil3,perfil4,"['esportes', 'jogos']","['esportes', 'musica', 'jogos']",0.99,0.99,0.6666666666666666,0.65338911,0.34,1,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>]"
+perfil3,perfil2,"['esportes', 'jogos']",['viagens'],0.3,0.1,0.0,0.0,0.34,0,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>]"
+perfil3,perfil1,"['esportes', 'jogos']",['esportes'],0.5,0.31,1.0,0.155,0.34,0,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>]"
+perfil2,perfil4,"['moda', 'viagens']","['esportes', 'musica', 'jogos']",0.99,0.99,0.0,0.0,0.8,0,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>]"
+perfil2,perfil3,"['moda', 'viagens']",['musica'],0.9,0.7,0.0,0.0,0.8,0,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>]"
+perfil2,perfil1,"['moda', 'viagens']",['esportes'],0.5,0.31,0.0,0.0,0.8,0,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>]"
+perfil1,perfil4,"['esportes', 'musica']","['esportes', 'musica', 'jogos']",0.99,0.99,0.6666666666666666,0.65338911,0.5,1,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>, <populacao.Jogador object at 0x03BCDFD0>]"
+perfil1,perfil3,"['esportes', 'musica']",['musica'],0.9,0.7,1.0,0.63,0.5,1,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>, <populacao.Jogador object at 0x03BCDFD0>, <populacao.Jogador object at 0x03BD5930>]"
+perfil1,perfil2,"['esportes', 'musica']",['viagens'],0.3,0.1,0.0,0.0,0.5,0,"[<populacao.Jogador object at 0x03BD5930>, <populacao.Jogador object at 0x03BCDFD0>, <populacao.Jogador object at 0x03BCDFD0>, <populacao.Jogador object at 0x03BD5930>]"
