@@ -24,6 +24,12 @@ class Jogador:
         self.qualidade_publicacao = float(qualidade_publicacao)
         self.frequencia_publicacao = float(frequencia_publicacao)
         self.minimoConsumo = float(minimo_consumo)
+        
+    def __repr__(self):
+        return self.perfil
+
+    def __str__(self):
+        return self.perfil
 
 
 def gera_qualidade(faixa_qualidade):

@@ -138,6 +138,6 @@ def jogadas(jogadores: list):
             str(jogador.qualidade_publicacao),
             str(jogador.frequencia_publicacao),
             str(jogador.minimoConsumo),
-            list(jogador.seguidores),
-            list(jogador.segue)
+            str(jogador.seguidores),
+            str(jogador.segue)
         ])
