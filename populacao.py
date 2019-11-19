@@ -67,11 +67,11 @@ def gera_conteudo(faixa_conteudo):
     
 
 def gera_limiar(faixa_limiar):
-    if(faixa_limiar == 'alta'):
+    if(faixa_limiar == 'alto'):
         return random.uniform(0.7, 0.99)
-    if(faixa_limiar == 'media'):
+    if(faixa_limiar == 'medio'):
         return random.uniform(0.3, 0.7)
-    if(faixa_limiar == 'baixa'):
+    if(faixa_limiar == 'baixo'):
         return random.uniform(0, 0.3)
         
 

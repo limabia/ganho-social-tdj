@@ -1,7 +1,0 @@
-jogador,utilidade,conteudo_interesse,conteudo_publicado,qualidade_publicacao,frequencia_publicacao,minimo_para_seguir
-perfil5,6.385955207752627,"['fotos_em_grupo', 'selfies', 'comida']","['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']",0.7286474476491529,0.897426314799092,0.29
-perfil5,6.143508104406342,"['meme', 'atividades', 'selfies']","['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']",0.7877368335492869,0.731267213386325,0.29
-perfil4,3.246082607729695,"['selfies', 'fotos_em_grupo']","['atividades', 'meme']",0.7662965195613007,0.387219276901114,0.29
-perfil3,4.683726058195714,"['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']","['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']",0.5969774970951587,0.1973340027699522,0.34
-perfil2,1.8287682655427813,['atividades'],"['comida', 'selfies', 'meme', 'atividades']",0.7342144823501536,0.24348918018138954,0.8
-perfil1,5.048973065792893,"['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']","['fotos_em_grupo', 'atividades', 'comida', 'meme']",0.230755156021549,0.8095850266864387,0.5

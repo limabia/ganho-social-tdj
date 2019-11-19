@@ -1,5 +1,5 @@
-perfil1,alta,media,baixa,alta,0.5
-perfil2,baixa,media,alta,baixa,0.8
-perfil3,alta,alta,media,baixa,0.34
-perfil4,baixa,baixa,alta,media,0.29
-perfil5,media,alta,alta,alta,0.29
+perfil1,alta,media,baixa,alta,medio
+perfil2,baixa,media,alta,baixa,alto
+perfil3,alta,alta,media,baixa,medio
+perfil4,baixa,baixa,alta,media,baixo
+perfil5,media,alta,alta,alta,alto

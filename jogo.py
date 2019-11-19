@@ -9,12 +9,13 @@ arquivo_jogadas_ind.writerow([
     "frequencia_JB",
     "qualidade_JB",
     "interesse_JA_em_JB",
+    "ganho_JA_em_JB",
+    "perda_JA_em_JB",
     "consumo_JA_em_JB",
     "minimo_consumo_JA",
-    "JA_seguiu_JB",
-    "JA_segue"
+    "JA_seguiu_JB"
     ])
-arquivo_jogadas = csv.writer(open("jogadas.csv", "w"))
+arquivo_jogadas = csv.writer(open("jogadores.csv", "w"))
 arquivo_jogadas.writerow([
     "jogador",
     "utilidade",
@@ -22,7 +23,9 @@ arquivo_jogadas.writerow([
     "conteudo_publicado",
     "qualidade_publicacao",
     "frequencia_publicacao",
-    "minimo_para_seguir"
+    "minimo_para_seguir",
+    "seguidores",
+    "seguindo"
     ])
 
 def calcular_interesse(jogador_a, jogador_b):
@@ -66,20 +69,19 @@ def jogada_individual(jogador_a, jogador_b):
     print("Interesse de A em B:", interesse_a_em_b)
     consumo_a_em_b = 0.0
     jogador_a_seguiu_b = 0
-    if interesse_a_em_b != 0:
-        consumo_a_em_b = calcular_consumo(jogador_a, jogador_b)
-        print("Consumo de A em B:", consumo_a_em_b)
-        print("Minimo para jogador A seguir B: ", jogador_a.minimoConsumo)
-        if consumo_a_em_b >= jogador_a.minimoConsumo:
-            print("Jogador A seguiu B")
-            jogador_a_seguiu_b = 1
-            jogador_b.seguidores.append(jogador_a)
-            jogador_a.segue.append(jogador_b)
-        else:
-            print("Jogador A não seguiu B")
-            jogador_a_seguiu_b = 0
+    ganho_a_em_b = calcular_ganho(jogador_a, jogador_b)
+    perda_a_em_b = calcular_perda(jogador_a, jogador_b)
+    consumo_a_em_b = calcular_consumo(jogador_a, jogador_b)
+    print("Consumo de A em B:", consumo_a_em_b)
+    print("Minimo para jogador A seguir B: ", jogador_a.minimoConsumo)
+    if consumo_a_em_b >= jogador_a.minimoConsumo:
+        print("Jogador A seguiu B")
+        jogador_a_seguiu_b = 1
+        jogador_b.seguidores.append(jogador_a)
+        jogador_a.segue.append(jogador_b)
     else:
         print("Jogador A não seguiu B")
+        jogador_a_seguiu_b = 0
     print("\n\n")
 
     arquivo_jogadas_ind.writerow([
@@ -90,6 +92,8 @@ def jogada_individual(jogador_a, jogador_b):
         str(jogador_b.frequencia_publicacao),
         str(jogador_b.qualidade_publicacao),
         str(interesse_a_em_b),
+        str(ganho_a_em_b),
+        str(perda_a_em_b),
         str(consumo_a_em_b),
         str(jogador_a.minimoConsumo),
         int(jogador_a_seguiu_b)
@@ -133,5 +137,7 @@ def jogadas(jogadores: list):
             str(jogador.conteudo_publicado),
             str(jogador.qualidade_publicacao),
             str(jogador.frequencia_publicacao),
-            str(jogador.minimoConsumo)
+            str(jogador.minimoConsumo),
+            list(jogador.seguidores),
+            list(jogador.segue)
         ])
