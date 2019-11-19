@@ -77,8 +77,12 @@ def jogada_individual(jogador_a, jogador_b):
     if consumo_a_em_b >= jogador_a.minimoConsumo:
         print("Jogador A seguiu B")
         jogador_a_seguiu_b = 1
+        print("seguidores b:", jogador_b.seguidores)
+        print("segue a:", jogador_a.segue)
         jogador_b.seguidores.append(jogador_a)
         jogador_a.segue.append(jogador_b)
+        print("seguidores b:", jogador_b.seguidores)
+        print("segue a: ", jogador_a.segue)
     else:
         print("Jogador A não seguiu B")
         jogador_a_seguiu_b = 0
@@ -108,7 +112,7 @@ def calcular_utilidade(jogador_a):
     for jogador_que_segue_a in jogador_a.seguidores:
         atencao += calcular_atencao(jogador_a, jogador_que_segue_a)
     custo = calcular_custo(jogador_a)
-    return consumo + atencao + custo
+    return consumo + atencao - custo
 
 
 def jogadas(jogadores: list):
@@ -121,7 +125,6 @@ def jogadas(jogadores: list):
         adversarios = jogadores.copy()
         adversarios.remove(jogador_a)
         for jogador_b in adversarios:
-            print('jogador a: ', jogador_a, 'jogador b: ', jogador_b)
             jogada_individual(jogador_a, jogador_b)
             i += 1
 

@@ -24,6 +24,8 @@ class Jogador:
         self.qualidade_publicacao = float(qualidade_publicacao)
         self.frequencia_publicacao = float(frequencia_publicacao)
         self.minimoConsumo = float(minimo_consumo)
+        self.segue = []
+        self.seguidores = []
         
     def __repr__(self):
         return self.perfil
@@ -74,14 +76,14 @@ def gera_conteudo(faixa_conteudo):
 
 def gera_limiar(faixa_limiar):
     if(faixa_limiar == 'alto'):
-        return random.uniform(0.7, 0.99)
+        return random.uniform(0.5, 1)
     if(faixa_limiar == 'medio'):
-        return random.uniform(0.3, 0.7)
+        return random.uniform(0, 0.5)
     if(faixa_limiar == 'baixo'):
-        return random.uniform(0, 0.3)
+        return 0
         
 
-def gera_jogador(atributos):
+def gera_jogador(atributos, nome_perfil):
     interesse = gera_conteudo(atributos[1])
     publicado = gera_conteudo(atributos[2])
     qualidade = gera_qualidade(atributos[3])
@@ -89,7 +91,7 @@ def gera_jogador(atributos):
     limiar = gera_limiar(atributos[5])
 
     jogador = Jogador(
-        perfil=atributos[0],
+        perfil=nome_perfil,
         conteudo_interesse=interesse,
         conteudo_publicado=publicado,
         qualidade_publicacao=qualidade,
@@ -131,7 +133,8 @@ def gera_populacao(tipo_perfis, detalhes_pop):
         if(detalhe_pop[0] in perfil_dict):
             qtd_perfil1 = int(detalhe_pop[1])
             for i in range(qtd_perfil1):
-                populacao.append(gera_jogador(perfil_dict[detalhe_pop[0]]))
+                nome_perfil = perfil_dict[detalhe_pop[0]][0] + '-' + str(i)
+                populacao.append(gera_jogador(perfil_dict[detalhe_pop[0]],nome_perfil))
             total_pop -= qtd_perfil1
 
     # TODO arrumar esse total pop para nao criar coisa que nao deve
