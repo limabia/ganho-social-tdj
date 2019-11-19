@@ -17,9 +17,13 @@ arquivo_jogadas_ind.writerow([
 arquivo_jogadas = csv.writer(open("jogadas.csv", "w"))
 arquivo_jogadas.writerow([
     "jogador",
-    "utilidade"
+    "utilidade",
+    "conteudo_interesse",
+    "conteudo_publicado",
+    "qualidade_publicacao",
+    "frequencia_publicacao",
+    "minimo_para_seguir"
     ])
-jogador_a_seguiu_b: bool
 
 def calcular_interesse(jogador_a, jogador_b):
     conteudo_interesse = jogador_a.conteudo_interesse
@@ -61,7 +65,7 @@ def jogada_individual(jogador_a, jogador_b):
     interesse_a_em_b = calcular_interesse(jogador_a, jogador_b)
     print("Interesse de A em B:", interesse_a_em_b)
     consumo_a_em_b = 0.0
-    jogador_a_seguiu_b = 0;
+    jogador_a_seguiu_b = 0
     if interesse_a_em_b != 0:
         consumo_a_em_b = calcular_consumo(jogador_a, jogador_b)
         print("Consumo de A em B:", consumo_a_em_b)
@@ -77,6 +81,7 @@ def jogada_individual(jogador_a, jogador_b):
     else:
         print("Jogador A não seguiu B")
     print("\n\n")
+
     arquivo_jogadas_ind.writerow([
         str(jogador_a.perfil),
         str(jogador_b.perfil),
@@ -87,8 +92,7 @@ def jogada_individual(jogador_a, jogador_b):
         str(interesse_a_em_b),
         str(consumo_a_em_b),
         str(jogador_a.minimoConsumo),
-        str(jogador_a_seguiu_b),
-        str(jogador_a.segue)
+        int(jogador_a_seguiu_b)
         ])    
 
 
@@ -124,5 +128,10 @@ def jogadas(jogadores: list):
         print("Utilidade:", jogador.utilidade)
         arquivo_jogadas.writerow([
             str(jogador.perfil),
-            str(jogador.utilidade)
+            str(jogador.utilidade),
+            str(jogador.conteudo_interesse),
+            str(jogador.conteudo_publicado),
+            str(jogador.qualidade_publicacao),
+            str(jogador.frequencia_publicacao),
+            str(jogador.minimoConsumo)
         ])
