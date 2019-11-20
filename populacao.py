@@ -17,7 +17,8 @@ class Jogador:
     segue = []
     seguidores = []
 
-    def __init__(self, perfil, conteudo_interesse, conteudo_publicado, qualidade_publicacao, frequencia_publicacao, minimo_consumo):
+    def __init__(self, perfil, conteudo_interesse, conteudo_publicado, qualidade_publicacao, frequencia_publicacao,
+                 minimo_consumo):
         self.perfil = perfil
         self.conteudo_interesse = conteudo_interesse
         self.conteudo_publicado = conteudo_publicado
@@ -26,7 +27,7 @@ class Jogador:
         self.minimoConsumo = float(minimo_consumo)
         self.segue = []
         self.seguidores = []
-        
+
     def __repr__(self):
         return self.perfil
 
@@ -35,53 +36,56 @@ class Jogador:
 
 
 def gera_qualidade(faixa_qualidade):
-    if(faixa_qualidade == 'alta'):
+    if faixa_qualidade == 'alta':
         return random.uniform(0.7, 0.99)
-    if(faixa_qualidade == 'media'):
+    if faixa_qualidade == 'media':
         return random.uniform(0.3, 0.7)
-    if(faixa_qualidade == 'baixa'):
+    if faixa_qualidade == 'baixa':
         return random.uniform(0, 0.3)
+
 
 def gera_frequencia(faixa_frequencia):
-    if(faixa_frequencia == 'alta'):
+    if faixa_frequencia == 'alta':
         return random.uniform(0.7, 0.99)
-    if(faixa_frequencia == 'media'):
+    if faixa_frequencia == 'media':
         return random.uniform(0.3, 0.7)
-    if(faixa_frequencia == 'baixa'):
+    if faixa_frequencia == 'baixa':
         return random.uniform(0, 0.3)
 
+
+def gera_faixa_conteudo(conteudo_aleatorio, i, tipos_conteudo):
+    for x in range(i):
+        random_index = randint(0, len(tipos_conteudo) - 1)
+        while tipos_conteudo[random_index] in conteudo_aleatorio:
+            random_index = randint(0, len(tipos_conteudo) - 1)
+        conteudo_aleatorio.append(tipos_conteudo[random_index])
+    return conteudo_aleatorio
+
+
 def gera_conteudo(faixa_conteudo):
-    tipos_conteudo = ['comida','meme','atividades','selfies','fotos_em_grupo']
+    tipos_conteudo = ['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']
     conteudo_aleatorio = []
 
-    if(faixa_conteudo == 'alta'):
+    if faixa_conteudo == 'alta':
         return tipos_conteudo
-    if(faixa_conteudo == 'media'):
+
+    if faixa_conteudo == 'media':
         i = randint(3, 4)
-        for x in range(i):
-            randomIndex = randint(0, len(tipos_conteudo) - 1)
-            while tipos_conteudo[randomIndex] in conteudo_aleatorio:
-                randomIndex = randint(0, len(tipos_conteudo) - 1)
-            conteudo_aleatorio.append(tipos_conteudo[randomIndex])
-        return conteudo_aleatorio
-    if(faixa_conteudo == 'baixa'):
+        return gera_faixa_conteudo(conteudo_aleatorio, i, tipos_conteudo)
+
+    if faixa_conteudo == 'baixa':
         i = randint(1, 2)
-        for x in range(i):
-            randomIndex = randint(0, len(tipos_conteudo) - 1)
-            while tipos_conteudo[randomIndex] in conteudo_aleatorio:
-                randomIndex = randint(0, len(tipos_conteudo) - 1)
-            conteudo_aleatorio.append(tipos_conteudo[randomIndex])
-        return conteudo_aleatorio
-    
+        return gera_faixa_conteudo(conteudo_aleatorio, i, tipos_conteudo)
+
 
 def gera_limiar(faixa_limiar):
-    if(faixa_limiar == 'alto'):
+    if faixa_limiar == 'alto':
         return random.uniform(0.5, 1)
-    if(faixa_limiar == 'medio'):
+    if faixa_limiar == 'medio':
         return random.uniform(0, 0.5)
-    if(faixa_limiar == 'baixo'):
+    if faixa_limiar == 'baixo':
         return 0
-        
+
 
 def gera_jogador(atributos, nome_perfil):
     interesse = gera_conteudo(atributos[1])
@@ -102,15 +106,15 @@ def gera_jogador(atributos, nome_perfil):
 
 
 def gera_getalhes(pathFile):
-    fileOpen = open(pathFile, "r")
+    file_open = open(pathFile, "r")
     lista = []
-    if fileOpen.mode == 'r':
-        contents = fileOpen.readlines()
+    if file_open.mode == 'r':
+        contents = file_open.readlines()
         while contents:
             linha = contents.pop().replace("\n", "")
             atributos = linha.split(",")
             lista.append(atributos)
-    fileOpen.close()
+    file_open.close()
     return lista
 
 
@@ -127,18 +131,14 @@ def gera_populacao(tipo_perfis, detalhes_pop):
         perfil_dict[perfil[0]] = perfil
 
     for detalhe_pop in lista_detalhes_pop:
-        if(detalhe_pop[0] == 'pop'):
+        if detalhe_pop[0] == 'pop':
             total_pop = int(detalhe_pop[1])
 
-        if(detalhe_pop[0] in perfil_dict):
+        if detalhe_pop[0] in perfil_dict:
             qtd_perfil1 = int(detalhe_pop[1])
             for i in range(qtd_perfil1):
                 nome_perfil = perfil_dict[detalhe_pop[0]][0] + '-' + str(i)
-                populacao.append(gera_jogador(perfil_dict[detalhe_pop[0]],nome_perfil))
+                populacao.append(gera_jogador(perfil_dict[detalhe_pop[0]], nome_perfil))
             total_pop -= qtd_perfil1
-
-    # TODO arrumar esse total pop para nao criar coisa que nao deve
-    #for i in range(total_pop):
-    #    populacao.append(gera_jogador_aleatorio(lista_perfis))
 
     return populacao

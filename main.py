@@ -6,9 +6,7 @@ from populacao import gera_populacao
 
 
 def main(args):
-    populacao = gera_populacao(args.tiposPerfis, args.detalhesPop)
-    print(populacao)
-    jogadas(populacao)
+    jogadas(gera_populacao(args.tiposPerfis, args.detalhesPop))
 
 
 def arg_parse():

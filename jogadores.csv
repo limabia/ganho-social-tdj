@@ -1,7 +1,0 @@
-jogador,utilidade,conteudo_interesse,conteudo_publicado,qualidade_publicacao,frequencia_publicacao,minimo_para_seguir,seguidores,seguindo
-perfil5-0,1.9337929420120794,"['meme', 'atividades', 'comida']","['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']",0.9729189978845423,0.9637771381591318,0.7258418967312028,"[perfil5-1, perfil4-0, perfil3-0, perfil1-0]",[]
-perfil5-1,1.8335944067735923,"['comida', 'selfies', 'meme', 'fotos_em_grupo']","['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']",0.7842349820210666,0.9490822222856593,0.7453111262400829,"[perfil4-0, perfil3-0, perfil1-0]",[perfil5-0]
-perfil4-0,0.9856947570006953,['comida'],"['comida', 'fotos_em_grupo']",0.7133612200056347,0.6045930214422338,0.0,"[perfil3-0, perfil1-0]","[perfil5-0, perfil5-1]"
-perfil3-0,2.10745087303325,"['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']","['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']",0.3266899673815196,0.2335792265343333,0.35645981812273175,[],"[perfil5-0, perfil5-1, perfil4-0]"
-perfil2-0,-0.016448189943605983,['selfies'],"['selfies', 'meme', 'atividades', 'fotos_em_grupo']",0.7429886433974905,0.17261434342891924,0.7237463313521464,[],[]
-perfil1-0,2.0974039173094794,"['comida', 'meme', 'atividades', 'selfies', 'fotos_em_grupo']","['meme', 'atividades', 'selfies']",0.1724850769994832,0.7303568214908737,0.4118993528515933,[],"[perfil5-0, perfil5-1, perfil4-0]"
