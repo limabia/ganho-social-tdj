@@ -28,7 +28,9 @@ arquivo_jogadas.writerow([
     "frequencia_publicacao",
     "minimo_para_seguir",
     "seguidores",
-    "seguindo"
+    "seguindo",
+    "n_seguidores",
+    "n_seguindo"
     ])
 
 
@@ -92,7 +94,7 @@ def jogada_individual(jogador_a, jogador_b):
         jogador_a_seguiu_b = 0
     # print("\n\n")
 
-    arquivo_jogadas_ind.writerow([
+    """arquivo_jogadas_ind.writerow([
         str(jogador_a.perfil),
         str(jogador_b.perfil),
         str(jogador_a.conteudo_interesse),
@@ -105,7 +107,7 @@ def jogada_individual(jogador_a, jogador_b):
         str(consumo_a_em_b),
         str(jogador_a.minimoConsumo),
         int(jogador_a_seguiu_b)
-        ])
+        ])"""
 
 
 def calcular_utilidade(jogador_a):
@@ -146,7 +148,9 @@ def jogadas(jogadores: list):
             str(jogador.frequencia_publicacao),
             str(jogador.minimoConsumo),
             str(jogador.seguidores),
-            str(jogador.segue)
+            str(jogador.segue),
+            str(len(jogador.seguidores)),
+            str(len(jogador.segue))
         ])
 
     print("jogada: ", n_jogadas)
