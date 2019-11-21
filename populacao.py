@@ -80,11 +80,11 @@ def gera_conteudo(faixa_conteudo):
 
 def gera_limiar(faixa_limiar):
     if faixa_limiar == 'alto':
-        return random.uniform(0.5, 1)
+        return random.uniform(0.3, 0.9)
     if faixa_limiar == 'medio':
-        return random.uniform(0, 0.5)
+        return random.uniform(0, 0.3)
     if faixa_limiar == 'baixo':
-        return 0
+        return random.uniform(-0.9, 0)
 
 
 def gera_jogador(atributos, nome_perfil):
