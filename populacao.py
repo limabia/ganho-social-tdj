@@ -3,6 +3,7 @@
 from random import seed
 from random import randint
 import random
+import csv
 
 
 class Jogador:
@@ -13,7 +14,7 @@ class Jogador:
     qualidade_publicacao: float
     frequencia_publicacao: float
     utilidade = 0.0
-    minimoConsumo = 0.0
+    minimo_consumo = 0.0
     segue = []
     seguidores = []
 
@@ -24,7 +25,7 @@ class Jogador:
         self.conteudo_publicado = conteudo_publicado
         self.qualidade_publicacao = float(qualidade_publicacao)
         self.frequencia_publicacao = float(frequencia_publicacao)
-        self.minimoConsumo = float(minimo_consumo)
+        self.minimo_consumo = float(minimo_consumo)
         self.segue = []
         self.seguidores = []
 
@@ -142,3 +143,43 @@ def gera_populacao(tipo_perfis, detalhes_pop):
             total_pop -= qtd_perfil1
 
     return populacao
+
+def duplica_jogador(jogador):
+    nome_perfil = jogador.perfil
+    interesse = jogador.conteudo_interesse
+    publicado = jogador.conteudo_publicado
+    qualidade = jogador.qualidade_publicacao
+    frequencia = jogador.frequencia_publicacao
+    limiar = jogador.minimo_consumo
+
+    jogador = Jogador(
+        perfil=nome_perfil,
+        conteudo_interesse=interesse,
+        conteudo_publicado=publicado,
+        qualidade_publicacao=qualidade,
+        frequencia_publicacao=frequencia,
+        minimo_consumo=limiar
+    )
+    return jogador
+
+def evolui_pop(populacao,n_rodada):
+
+    removidos = populacao[-10:]
+    duplicados = populacao[:10]
+    del populacao[-10:]
+
+    for x in range(10):
+        populacao.append(duplica_jogador(populacao[x]))
+
+    jogadores_file = open("results/evolucao-" + str(n_rodada) +".csv", "w", newline='')
+    jogadores_writer = csv.writer(jogadores_file)
+    jogadores_writer.writerow([
+        'jogadores_eliminados',
+        'jogadores_duplicados'
+        ])
+
+    jogadores_writer.writerow([
+        str(removidos),
+        str(duplicados)
+        ])
+

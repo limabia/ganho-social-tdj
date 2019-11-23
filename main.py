@@ -3,10 +3,15 @@ import argparse
 
 from jogo import jogadas
 from populacao import gera_populacao
+from populacao import evolui_pop
 
 
 def main(args):
-    jogadas(gera_populacao(args.tiposPerfis, args.detalhesPop))
+    populacao = gera_populacao(args.tiposPerfis, args.detalhesPop)
+    for x in range(3):
+        jogadas(populacao, x)
+        evolui_pop(populacao, x)
+
 
 
 def arg_parse():
