@@ -8,7 +8,7 @@ from populacao import evolui_pop
 
 def main(args):
     populacao = gera_populacao(args.tiposPerfis, args.detalhesPop)
-    for x in range(3):
+    for x in range(10):
         jogadas(populacao, x)
         evolui_pop(populacao, x)
 

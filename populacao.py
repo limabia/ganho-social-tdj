@@ -17,9 +17,10 @@ class Jogador:
     minimo_consumo = 0.0
     segue = []
     seguidores = []
+    atributos = []
 
     def __init__(self, perfil, conteudo_interesse, conteudo_publicado, qualidade_publicacao, frequencia_publicacao,
-                 minimo_consumo):
+                 minimo_consumo, atributos):
         self.perfil = perfil
         self.conteudo_interesse = conteudo_interesse
         self.conteudo_publicado = conteudo_publicado
@@ -28,6 +29,7 @@ class Jogador:
         self.minimo_consumo = float(minimo_consumo)
         self.segue = []
         self.seguidores = []
+        self.atributos = atributos
 
     def __repr__(self):
         return self.perfil
@@ -101,7 +103,8 @@ def gera_jogador(atributos, nome_perfil):
         conteudo_publicado=publicado,
         qualidade_publicacao=qualidade,
         frequencia_publicacao=frequencia,
-        minimo_consumo=limiar
+        minimo_consumo=limiar,
+        atributos = atributos
     )
     return jogador
 
@@ -144,24 +147,6 @@ def gera_populacao(tipo_perfis, detalhes_pop):
 
     return populacao
 
-def duplica_jogador(jogador):
-    nome_perfil = jogador.perfil
-    interesse = jogador.conteudo_interesse
-    publicado = jogador.conteudo_publicado
-    qualidade = jogador.qualidade_publicacao
-    frequencia = jogador.frequencia_publicacao
-    limiar = jogador.minimo_consumo
-
-    jogador = Jogador(
-        perfil=nome_perfil,
-        conteudo_interesse=interesse,
-        conteudo_publicado=publicado,
-        qualidade_publicacao=qualidade,
-        frequencia_publicacao=frequencia,
-        minimo_consumo=limiar
-    )
-    return jogador
-
 def evolui_pop(populacao,n_rodada):
 
     removidos = populacao[-10:]
@@ -169,7 +154,7 @@ def evolui_pop(populacao,n_rodada):
     del populacao[-10:]
 
     for x in range(10):
-        populacao.append(duplica_jogador(populacao[x]))
+        populacao.append(gera_jogador(populacao[x].atributos,populacao[x].perfil))
 
     jogadores_file = open("results/evolucao-" + str(n_rodada) +".csv", "w", newline='')
     jogadores_writer = csv.writer(jogadores_file)
